@@ -22,10 +22,8 @@ WORKDIR /app
 # Copy only necessary files from the builder stage
 COPY --from=builder /app/package.json /app/package-lock.json ./
 COPY --from=builder /app/.next /app/.next
+COPY --from=builder /app/public /app/public
 COPY --from=builder /app/next.config.js /app/
-
-# Only copy the public folder if it exists
-COPY --from=builder /app/public /app/public || true
 
 # Install production dependencies
 RUN npm ci --only=production
