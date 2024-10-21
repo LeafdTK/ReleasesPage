@@ -30,7 +30,7 @@ jobs:
           file: ./releases/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/${{ github.repository }}/leafdapp:latest
+          tags: ghcr.io/leafdtk/releasespage/leafdapp:latest
 
       - name: Post build cleanup
         run: docker builder prune --force
